@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anki Flashcard Image Striper</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .side-by-side-canvas {
+            display: flex;
+            flex-direction: row; /* Arrange canvases horizontally */
+            align-items: start; /* Align items to the start of the container */
+        }
+
+        .side-by-side-canvas .image-container {
+            margin-right: 20px; /* Space between canvas pairs */
+        }
+
+        .customization-area {
+            display: flex;
+            flex-direction: column; /* Stack customization items vertically */
+        }
+
+        .custom-item {
+            margin-bottom: 10px; /* Space between customization items */
+            display: flex;
+            align-items: center; /* Align labels and inputs vertically in center */
+        }
+
+        .custom-item label {
+            margin-right: 10px; /* Space between label and input */
+            width: auto; /* Adjust label width as needed */
+            text-align: left; /* Align label text to the left */
+        }
+
+        .custom-item input[type="number"] {
+            width: 60px; /* Set a fixed width for number inputs if desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Anki Flashcard Image Striper</h1>
+
+        <div class="input-area">
+            <button id="pasteButton" class="upload-button">Paste Image from Clipboard</button>
+            <label for="imageUpload" class="upload-button">Choose Image</label>
+            <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+            <p id="filename-display">No image loaded</p>
+        </div>
+
+        <div class="customization-area">
+            <div class="custom-item">
+                <label for="stripeColor">Stripe Color:</label>
+                <input type="color" id="stripeColor" value="#000000">
+            </div>
+            <div class="custom-item">
+                <label for="stripeWidthPercent">Stripe Width (%):</label>
+                <input type="number" id="stripeWidthPercent" value="7" min="1" max="50">
+            </div>
+            <div class="custom-item">
+                <label for="stripes1Count">Stripes for Card 1:</label>
+                <input type="number" id="stripes1Count" value="3" min="0" max="100">
+            </div>
+            <div class="custom-item">
+                <label for="stripes2Count">Stripes for Card 2:</label>
+                <input type="number" id="stripes2Count" value="6" min="0" max="100">
+            </div>
+            <div class="custom-item">
+                <label for="stripes3Count">Stripes for Card 3:</label>
+                <input type="number" id="stripes3Count" value="10" min="0" max="100">
+            </div>
+        </div>
+
+        <div class="image-preview">
+            <div class="side-by-side-canvas">
+                <div class="image-container">
+                    <h3 id="stripes1Heading">Stripes Card 1</h3>
+                    <canvas id="stripes1Canvas"></canvas>
+                </div>
+                <div class="image-container">
+                    <h3>Original Image</h3>
+                    <canvas id="originalCanvas1"></canvas>
+                </div>
+            </div>
+            <div class="side-by-side-canvas">
+                <div class="image-container">
+                    <h3 id="stripes2Heading">Stripes Card 2</h3>
+                    <canvas id="stripes2Canvas"></canvas>
+                </div>
+                <div class="image-container">
+                    <h3>Original Image</h3>
+                    <canvas id="originalCanvas2"></canvas>
+                </div>
+            </div>
+            <div class="side-by-side-canvas">
+                <div class="image-container">
+                    <h3 id="stripes3Heading">Stripes Card 3</h3>
+                    <canvas id="stripes3Canvas"></canvas>
+                </div>
+                <div class="image-container">
+                    <h3>Original Image</h3>
+                    <canvas id="originalCanvas3"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-area">
+            <button id="createAnkiCardsButton" class="action-button">Create Anki Cards</button>
+            <p id="status-message"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

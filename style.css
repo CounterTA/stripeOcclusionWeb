@@ -1,0 +1,43 @@
+/* Existing CSS (if any) and new styles below */
+
+.action-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.action-button {
+    padding: 12px 24px;
+    background-color: #00a65a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.action-button:hover {
+    background-color: #007a45;
+}
+
+#status-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Example basic styling for image containers - adjust as needed in style.css */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.image-container h3 {
+    margin-bottom: 5px;
+}
+
+.image-container canvas {
+    border: 1px solid #ddd; /* Optional border for canvas */
+    /*max-width: 300px; /* Example max width, adjust as needed 
+    max-height: 300px; /* Example max height, adjust as needed */
+}
